@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CBIWAVToMP3 : NSObject
+@interface CBICAFToMP3 : NSObject
 
 
 /**

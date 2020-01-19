@@ -7,17 +7,17 @@
 //
 
 #import "CBIAVRecorder.h"
-#import "CBIWAVToMP3.h"
+#import "CBICAFToMP3.h"
 #import <AVFoundation/AVFoundation.h>
 
 #define isValidString(string)               (string && [string isEqualToString:@""] == NO)
-#define ETRECORD_RATE 11025.0
+#define SAMEPLE_RATE 44100
 #define ENCODE_MP3    1
 
 @interface CBIAVRecorder()<AVAudioRecorderDelegate>
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder;
 @property (nonatomic,strong) NSString *mp3Path;
-@property (nonatomic,strong) NSString *cafPath;//caf 与 wav 相同
+@property (nonatomic,strong) NSString *cafPath;//caf 与 wav 相同，都包含pcm
 
 @end
 
@@ -66,9 +66,9 @@
 - (NSDictionary *)getAudioSetting{
     NSMutableDictionary *dicM = [NSMutableDictionary dictionary];
     [dicM setObject:@(kAudioFormatLinearPCM) forKey:AVFormatIDKey];
-    [dicM setObject:@(ETRECORD_RATE) forKey:AVSampleRateKey];
-    [dicM setObject:@(2) forKey:AVNumberOfChannelsKey];
-    [dicM setObject:@(16) forKey:AVLinearPCMBitDepthKey];
+    [dicM setObject:@(SAMEPLE_RATE) forKey:AVSampleRateKey];
+    [dicM setObject:@(2) forKey:AVNumberOfChannelsKey];         //通道数要转换成MP3格式必须为双通道
+    [dicM setObject:@(16) forKey:AVLinearPCMBitDepthKey];       //越大越精细，2^16 = 65536,在坐标轴上表示单位长度
     [dicM setObject:[NSNumber numberWithInt:AVAudioQualityMin] forKey:AVEncoderAudioQualityKey];
     return dicM;
 }
@@ -139,9 +139,9 @@
 - (void)convertMp3 {
     
     
-        [[CBIWAVToMP3 sharedInstance] conventToMp3WithCafFilePath:self.cafPath
+        [[CBICAFToMP3 sharedInstance] conventToMp3WithCafFilePath:self.cafPath
                                                            mp3FilePath:self.mp3Path
-                                                            sampleRate:ETRECORD_RATE callback:^(BOOL result)
+                                                            sampleRate:SAMEPLE_RATE callback:^(BOOL result)
         {
             NSLog(@"---- 转码完成  --- result %d  ---- ", result);
         }];;
@@ -172,9 +172,9 @@
          NSLog(@"录音开始");
         
 #if ENCODE_MP3
-         [[CBIWAVToMP3 sharedInstance] conventToMp3WithCafFilePath:self.cafPath
+         [[CBICAFToMP3 sharedInstance] conventToMp3WithCafFilePath:self.cafPath
                                                            mp3FilePath:self.mp3Path
-                                                            sampleRate:ETRECORD_RATE
+                                                            sampleRate:SAMEPLE_RATE
                                                               callback:^(BOOL result)
          {
              if (result) {
@@ -213,7 +213,7 @@
         NSLog(@"----- 录音  完毕");
         
 #if ENCODE_MP3
-        [[CBIWAVToMP3 sharedInstance] sendEndRecord];;
+        [[CBICAFToMP3 sharedInstance] sendEndRecord];;
 #endif
         
     }

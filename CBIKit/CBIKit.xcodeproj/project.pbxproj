@@ -15,8 +15,9 @@
 		E424B9B623D1C6110053DFD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E424B9B423D1C6110053DFD7 /* LaunchScreen.storyboard */; };
 		E424B9B923D1C6110053DFD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E424B9B823D1C6110053DFD7 /* main.m */; };
 		E424B9C623D1CA360053DFD7 /* lame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E424B9C523D1CA360053DFD7 /* lame.framework */; };
-		E424B9C923D1CB790053DFD7 /* CBIWAVToMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = E424B9C823D1CB780053DFD7 /* CBIWAVToMP3.m */; };
+		E424B9C923D1CB790053DFD7 /* CBICAFToMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = E424B9C823D1CB780053DFD7 /* CBICAFToMP3.m */; };
 		E424B9CF23D3F1440053DFD7 /* CBIAVRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = E424B9CE23D3F1440053DFD7 /* CBIAVRecorder.m */; };
+		E4E970E523D3F74B0037196B /* 音频相关知识.md in Resources */ = {isa = PBXBuildFile; fileRef = E4E970E423D3F74B0037196B /* 音频相关知识.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +34,11 @@
 		E424B9B723D1C6110053DFD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E424B9B823D1C6110053DFD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E424B9C523D1CA360053DFD7 /* lame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = lame.framework; sourceTree = "<group>"; };
-		E424B9C723D1CB780053DFD7 /* CBIWAVToMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBIWAVToMP3.h; sourceTree = "<group>"; };
-		E424B9C823D1CB780053DFD7 /* CBIWAVToMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBIWAVToMP3.m; sourceTree = "<group>"; };
+		E424B9C723D1CB780053DFD7 /* CBICAFToMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBICAFToMP3.h; sourceTree = "<group>"; };
+		E424B9C823D1CB780053DFD7 /* CBICAFToMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBICAFToMP3.m; sourceTree = "<group>"; };
 		E424B9CD23D3F1440053DFD7 /* CBIAVRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBIAVRecorder.h; sourceTree = "<group>"; };
 		E424B9CE23D3F1440053DFD7 /* CBIAVRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBIAVRecorder.m; sourceTree = "<group>"; };
+		E4E970E423D3F74B0037196B /* 音频相关知识.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "音频相关知识.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				E424B9CB23D3F06A0053DFD7 /* Frameworks */,
 				E424B9CA23D3F05F0053DFD7 /* AVFoundation */,
+				E4E970E423D3F74B0037196B /* 音频相关知识.md */,
 			);
 			path = Recoder;
 			sourceTree = "<group>";
@@ -106,8 +109,8 @@
 		E424B9C123D1C9C00053DFD7 /* MP3 */ = {
 			isa = PBXGroup;
 			children = (
-				E424B9C723D1CB780053DFD7 /* CBIWAVToMP3.h */,
-				E424B9C823D1CB780053DFD7 /* CBIWAVToMP3.m */,
+				E424B9C723D1CB780053DFD7 /* CBICAFToMP3.h */,
+				E424B9C823D1CB780053DFD7 /* CBICAFToMP3.m */,
 			);
 			path = MP3;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			files = (
 				E424B9B623D1C6110053DFD7 /* LaunchScreen.storyboard in Resources */,
 				E424B9B323D1C6110053DFD7 /* Assets.xcassets in Resources */,
+				E4E970E523D3F74B0037196B /* 音频相关知识.md in Resources */,
 				E424B9B123D1C6100053DFD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E424B9C923D1CB790053DFD7 /* CBIWAVToMP3.m in Sources */,
+				E424B9C923D1CB790053DFD7 /* CBICAFToMP3.m in Sources */,
 				E424B9AE23D1C6100053DFD7 /* ViewController.m in Sources */,
 				E424B9A823D1C6100053DFD7 /* AppDelegate.m in Sources */,
 				E424B9CF23D3F1440053DFD7 /* CBIAVRecorder.m in Sources */,

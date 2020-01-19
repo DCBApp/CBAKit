@@ -6,15 +6,15 @@
 //  Copyright © 2017年 xuxiwen. All rights reserved.
 //
 
-#import "CBIWAVToMP3.h"
+#import "CBICAFToMP3.h"
 #import <lame/lame.h>
 
-@interface CBIWAVToMP3 ()
+@interface CBICAFToMP3 ()
 @property (nonatomic, assign) BOOL stopRecord;
 @property (nonatomic, assign) BOOL isSleep;
 @end
 
-@implementation CBIWAVToMP3
+@implementation CBICAFToMP3
 
 /**
  get instance obj
@@ -22,10 +22,10 @@
  @return ConvertAudioFile instance
  */
 + (instancetype)sharedInstance {
-    static CBIWAVToMP3 *instance = nil;
+    static CBICAFToMP3 *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[CBIWAVToMP3 alloc] init];
+        instance = [[CBICAFToMP3 alloc] init];
     });
     return instance;
 }
